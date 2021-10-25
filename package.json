@@ -1,6 +1,7 @@
 {
   "name": "devquiz",
   "version": "0.1.0",
+  "homepage": "/dev-quiz",
   "private": true,
   "dependencies": {
     "@emotion/react": "^11.5.0",

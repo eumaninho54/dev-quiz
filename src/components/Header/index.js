@@ -1,6 +1,6 @@
 import React from "react";
 import { AreaHeader } from "./styled";
-import { BrowserRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import imgLogoManin from '../../imgs/LogoManin.png'
 
@@ -8,14 +8,12 @@ import imgLogoManin from '../../imgs/LogoManin.png'
 export default () => {
 
     return(
-        <BrowserRouter>
-            <AreaHeader>
-                    <nav>
-                        <a href='a'>Github</a>
-                        <a className='margin_left' href='d'>Home</a>
-                        <a className='margin_left' href='x'>LinkedIn</a>
-                    </nav>
-            </AreaHeader>
-        </BrowserRouter>
+        <AreaHeader>
+                <nav>
+                    <a href='https://github.com/ymaninho54' target='_blank' rel='noreferrer'>Github</a>
+                    <Link  to="/dev-quiz" target='_self' className='margin_left'>Home</Link>
+                    <a className='margin_left' target='_blank' rel='noreferrer' href='https://www.linkedin.com/in/angelo-menti-663040210/'>LinkedIn</a>
+                </nav>
+        </AreaHeader>
     )
 }

@@ -1,59 +1,78 @@
-import React from "react";
+import React, { useEffect} from "react";
 import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
-import { AreaHome } from "./styled";
 
-import img_what from '../../imgs/circle_point_00000.png'
+import Aos from 'aos'
+import 'aos/dist/aos.css'
 
-import img_correct from '../../imgs/pngwing.com.png'
-import img_wrong from '../../imgs/pngwing_x_00000.png'
+import { AreaGame } from "./styled";
 
 
 
 // eslint-disable-next-line import/no-anonymous-default-export
-export default () => {
+export default (func=0) => {
+    var verification = verifTec()
+    if(func===1){
+        return verification
+    }
+
+    useEffect(()=>{
+        Aos.init({ duration: 1400})
+    }, [])
+
+    function verifTec(){
+        let verifJS = document.querySelector('input#option-1')
+        let verifPY = document.querySelector('input#option-2')
+
+        try{
+            if(verifJS.checked){
+                console.log('JS')
+                return 'JS'
+            }
+            if(verifPY.checked){
+                console.log('PY')
+                return 'PY'
+            }
+        }catch{}
+    }
+
 
     return(
-        <BrowserRouter>
-            <AreaHome>
-                <div id='text'>
-                    <header>
-                        <h1>1-</h1>
-                        <h2>Qual a diferença entre = , == e ===</h2>  
-                        <img src={img_what} alt='img_?'></img>
-                    </header>
-
-                    <main>
-                        <section className='alternative'>
-                            <p className='letter_alt'>A</p>
-                            <p>Alternativa A</p>
-
-                            <img className='img_respost' src={img_correct} alt='correct_img'></img>
+            <AreaGame>
+                    <main data-aos='zoom-out'>
+                        <section>
+                            <h1>Olá, bem vindo ao meu jogo</h1>
+                            <h2>Dev Quiz</h2>
+                            <p>Serão 10 perguntas e no final totalizará seu resultado, escolha 
+                            sua tecnologia e clique em jogar</p>
                         </section>
 
-                        <section className='alternative'>
-                            <p className='letter_alt'>B</p>
-                            <p>Alternativa B</p>
 
-                            <img className='img_respost' src={img_correct} alt='correct_img'></img>
+                        <section>
+                            <div id='button'>
+                                <span>
+                                    <button onClick={verifTec} id='jogar'><Link to="/dev-quiz/game">Jogar</Link></button>
+                                </span>
+                            </div>
+
+                            <div class="wrapper">
+                                <input type="radio" name="select" id="option-1" defaultChecked/>
+                                <input type="radio" name="select" id="option-2"/>
+
+                                <label for="option-1" class="option option-1">
+                                    <div class="dot"></div>
+                                    <span>JavaScript</span>
+                                    </label>
+
+                                <label for="option-2" class="option option-2">
+                                    <div class="dot"></div>
+                                    <span>Python</span>
+                                </label>
+                            </div>
+
                         </section>
 
-                        <section className='alternative'>
-                            <p className='letter_alt'>C</p>
-                            <p>Alternativa C</p>
-
-                            <img className='img_respost' src={img_correct} alt='correct_img'></img>
-                        </section>
-
-                        <section className='alternative'>
-                            <p className='letter_alt'>D</p>
-                            <p>Alternativa D</p>
-
-                            <img className='img_respost' src={img_correct} alt='correct_img'></img>
-                        </section>
                     </main>
-                </div>
-            </AreaHome>
-        
-        </BrowserRouter>
+            </AreaGame>
+
     )
 }
