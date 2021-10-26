@@ -4,6 +4,11 @@ import styled from 'styled-components';
 export const AreaGame = styled.div`
     margin:70px auto 0px auto;
 
+    a{
+        text-decoration: none;
+        color: black;
+    }
+
     div#text{
         font-size: 28px;
         max-width: 800px;
@@ -50,6 +55,15 @@ export const AreaGame = styled.div`
             p{
                 margin: 0;
                 font-size: 19px;
+            }
+        }
+
+        section#back5{
+            justify-content: center;
+            display: none;
+
+            p{
+                text-align: center;
             }
         }
 
@@ -101,5 +115,11 @@ export const AreaGame = styled.div`
 
         
     }
-   
+
+    .correct{
+        background-color: green;
+        display: initial;
+    }
+
+
 `

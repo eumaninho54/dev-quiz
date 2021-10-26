@@ -25,11 +25,9 @@ export default (func=0) => {
 
         try{
             if(verifJS.checked){
-                console.log('JS')
                 return 'JS'
             }
             if(verifPY.checked){
-                console.log('PY')
                 return 'PY'
             }
         }catch{}
