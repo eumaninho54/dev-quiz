@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/dev-quiz/static/css/main.abaf0ac3.chunk.css",
+    "main.js": "/dev-quiz/static/js/main.eedeacc8.chunk.js",
+    "main.js.map": "/dev-quiz/static/js/main.eedeacc8.chunk.js.map",
+    "runtime-main.js": "/dev-quiz/static/js/runtime-main.56a24755.js",
+    "runtime-main.js.map": "/dev-quiz/static/js/runtime-main.56a24755.js.map",
+    "static/css/2.7fc9bc2b.chunk.css": "/dev-quiz/static/css/2.7fc9bc2b.chunk.css",
+    "static/js/2.77e3d903.chunk.js": "/dev-quiz/static/js/2.77e3d903.chunk.js",
+    "static/js/2.77e3d903.chunk.js.map": "/dev-quiz/static/js/2.77e3d903.chunk.js.map",
+    "index.html": "/dev-quiz/index.html",
+    "static/css/2.7fc9bc2b.chunk.css.map": "/dev-quiz/static/css/2.7fc9bc2b.chunk.css.map",
+    "static/css/main.abaf0ac3.chunk.css.map": "/dev-quiz/static/css/main.abaf0ac3.chunk.css.map",
+    "static/js/2.77e3d903.chunk.js.LICENSE.txt": "/dev-quiz/static/js/2.77e3d903.chunk.js.LICENSE.txt",
+    "static/media/LogoManin.6ffbcfe5.png": "/dev-quiz/static/media/LogoManin.6ffbcfe5.png",
+    "static/media/circle_point_00000.7c7c14de.png": "/dev-quiz/static/media/circle_point_00000.7c7c14de.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.56a24755.js",
+    "static/css/2.7fc9bc2b.chunk.css",
+    "static/js/2.77e3d903.chunk.js",
+    "static/css/main.abaf0ac3.chunk.css",
+    "static/js/main.eedeacc8.chunk.js"
+  ]
+}
