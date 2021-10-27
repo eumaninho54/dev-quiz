@@ -1,5 +1,5 @@
 import React, { useEffect} from "react";
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 import Aos from 'aos'
 import 'aos/dist/aos.css'
@@ -40,7 +40,7 @@ export default (func=0) => {
                         <section>
                             <h1>Olá, bem vindo ao meu jogo</h1>
                             <h2>Dev Quiz</h2>
-                            <p>Serão 10 perguntas e no final totalizará seu resultado, escolha 
+                            <p>Serão 5 perguntas e no final totalizará seu resultado, escolha 
                             sua tecnologia e clique em jogar</p>
                         </section>
 

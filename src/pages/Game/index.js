@@ -1,12 +1,10 @@
-import React, {Quest} from "react";
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import React from "react";
+import { Link } from 'react-router-dom'
 import { AreaGame } from "./styled";
 
 import Aos from 'aos'
 import 'aos/dist/aos.css'
 
-import img_correct from '../../imgs/pngwing.com.png'
-import img_wrong from '../../imgs/pngwing_x_00000.png'
 
 import img_what from '../../imgs/circle_point_00000.png'
 
@@ -56,24 +54,75 @@ export default () => {
                'Representa que o valor não é um número', '73, 253']
     }
 
+    let quizPY = {
+
+        resp: [1, 1, 3, 3, 4],
+
+        num: [1, 2, 3, 4, 5],
+
+        quest: ['Qual a diferença entre lista e tuplas?', ' O que é pep 8 ?', 'Quais são módulos integrados ?', 
+                'Como funciona Break, Continue, Pass ?', 'O que [::-1] faz ?'],
+
+        alt1: ['Resumidamente, a estrutura tupla é imutável, e a lista é mutável.', 'É um conjunto de regras de como formatar o código Python',
+               'Os, sys, pytube', 'Break cancela o laço, Continue e Pass não existem', 
+               'Coloca última letra da string em maiúscula'],
+
+        alt2: ['Ambas possuem utilizações análogas', 'Significa Python Edge Proposal', 'Math, statistics, random',
+               'Break dá a opção de ignorar o loop, Continue cancela o laço e Pass preenche espaço', 
+               'Gera números aleatórios de trás pra frente'],
+
+        alt3: ['Tuplas são acessadas por meio da chave, e a lista pelo índice', 'É um módulo leve, simples e livre de dependências', 
+               'Math, Os, sys', 'Break cancela o laço, Continue dá a opção de ignorar o laço e Pass preenche lacuna',
+               'Randomiza os itens de uma lista'],
+
+        alt4: ['A lista é acessada por meio da chave, e a tupla pelo índice', 'É um gerenciador de pacote padrão de Python', 
+               'Pip, django, pytube', 'Possuem as mesmas funcionalidades que não se diferem', 'Inverte a ordem de um array ou sequência'],
+
+    }
+
+    if(altTec  === 'JS'){
+        quest = quizJS.quest[0]
+        alt1 = quizJS.alt1[0]
+        alt2 = quizJS.alt2[0]
+        alt3 = quizJS.alt3[0]
+        alt4 = quizJS.alt4[0]
+    }
+
+    if(altTec  === 'PY'){
+        quest = quizPY.quest[0]
+        alt1 = quizPY.alt1[0]
+        alt2 = quizPY.alt2[0]
+        alt3 = quizPY.alt3[0]
+        alt4 = quizPY.alt4[0]
+    }
+
     class quests{
 
         autenticTec(id){
             if(altTec  === 'JS'){
-                console.log(id)
                 this.autenticResp(id)
                 this.autenticQuests('JS')
-                
-                /*if PYTHON*/
+            }
+
+            if(altTec === 'PY'){
+                this.autenticResp(id)
+                this.autenticQuests('PY')
             }
         }
 
         autenticResp(val){
-            let r = quizJS.resp[num - 1]
-            if(r === val){
-                console.log('ACERTOU')
-                correct += 1
+            if(altTec  === 'JS'){
+                let r = quizJS.resp[num - 1]
+                if(r === val){
+                    correct += 1
+                }
             }
+            if(altTec === 'PY'){
+                let r = quizPY.resp[num - 1]
+                if(r === val){
+                    correct += 1
+                }
+            } 
         }
 
         changeCorrect(){
@@ -83,8 +132,6 @@ export default () => {
         autenticQuests(tec){
             if(tec === 'JS'){
                 if(5 === quizJS.num[num - 1]){
-                    console.log(quizJS.num[num])
-                    console.log('parei')
                     return this.resultsQuiz()
                 }
                 quest = quizJS.quest[num]
@@ -95,6 +142,21 @@ export default () => {
 
                 this.numAdd()
                 this.changeVal()
+            }
+
+            if(tec === 'PY'){
+                if(5 === quizPY.num[num - 1]){
+                    return this.resultsQuiz()
+                }
+                quest = quizPY.quest[num]
+                alt1 = quizPY.alt1[num]
+                alt2 = quizPY.alt2[num]
+                alt3 = quizPY.alt3[num]
+                alt4 = quizPY.alt4[num]
+
+                this.numAdd()
+                this.changeVal()
+
             }
         }
 
@@ -115,10 +177,6 @@ export default () => {
 
         numAdd(){
             num += 1
-        }
-
-        backMenu(){
-
         }
 
 
@@ -176,7 +234,7 @@ export default () => {
                 <div data-aos='zoom-out' id='text'>
                     <header>
                         <h1 id='num'>1-</h1>
-                        <h2 id='quest'>Especifique =, ==, === respectivamente</h2>
+                        <h2 id='quest'>{quest}</h2>
                         
                         <img src={img_what} alt='img_?'></img>
                     </header>
@@ -184,35 +242,35 @@ export default () => {
                     <main>
                         <section id='resp1' onClick={() => Quests.autenticTec(1)} className='alternative'>
                             <p  className='letter_alt'>A</p>
-                            <p id='resp1'>Atribuição e igualdade, === não existe</p>
+                            <p id='resp1'>{alt1}</p>
 
-                            <img className='img_respost' src={img_correct} alt='correct_img'></img>
+
                         </section>
 
                         <section id='resp2' onClick={() => Quests.autenticTec(2)} className='alternative'>
                             <p className='letter_alt'>B</p>
-                            <p id='resp2'>Atribuição, igualdade, valor e tipo respectivamente</p>
+                            <p id='resp2'>{alt2}</p>
 
-                            <img className='img_respost' src={img_correct} alt='correct_img'></img>
+                           
                         </section>
 
                         <section id='resp3' onClick={() => Quests.autenticTec(3)} className='alternative'>
                             <p className='letter_alt'>C</p>
-                            <p id='resp3'>Igualdade, atribuição, == e === são iguais</p>
+                            <p id='resp3'>{alt3}</p>
 
-                            <img className='img_respost' src={img_correct} alt='correct_img'></img>
+                         
                         </section>
 
                         <section id='resp4' onClick={() => Quests.autenticTec(4)} className='alternative'>
                             <p id='numb4' className='letter_alt'>D</p>
-                            <p id='resp4'>Atribuição, igualdade, == e === são iguais</p>
+                            <p id='resp4'>{alt4}</p>
 
-                            <img className='img_respost' src={img_correct} alt='correct_img'></img>
+                           
                         </section>
 
                         
                         <Link to='/dev-quiz' target='_self'><section id='back5' className='alternative'>
-                            <p id='back5'>ESTER EGG KK :)</p>
+                            <p  id='back5'>ESTER EGG KK :)</p>
                         </section></Link>
                     </main>
                 </div>
