@@ -1,5 +1,5 @@
 # Link to access the web page
-https://ymaninho54.github.io/dev-quiz/
+https://eumaninho54.github.io/dev-quiz/
 
 # Getting Started with Create React App
 
